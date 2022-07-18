@@ -1,0 +1,20 @@
+Managing Tasks and Services of Windows using CMD | Start & Stop
+
+         Listar as tarefas
+            tasklist
+
+        Abrir uma aplicação
+            notepad.exe
+
+        Terminar uma aplicação
+            taskkill /PID 14080
+                SUCCESS: Sent termination signal to the process with PID 14080.
+            
+        Serviços: Saber o Serviços que estão rodando por trás.
+                net start
+
+        Serviços: Parar um serviço 
+                net stop "Windows Time"
+
+        Serviços: Reiniciar um serviço 
+                net start "Windows Time"
