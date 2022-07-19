@@ -1,4 +1,5 @@
-Caminhar entre as pastas
+ <1 - Basics Files and folders Operations>
+        Caminhar entre as pastas
             Voltar uma pasta: cd..
             Voltar para raiz c: cd\
             ver o conteudo: dir
@@ -11,14 +12,91 @@ Caminhar entre as pastas
             ren nomedapasta novonome
 
         Cria um arquivo
-            type nul> nome.pptx ou nome.doc ou nome.xls etc
+            type nul > nome.pptx ou nome.doc ou nome.xls etc
 
         Mudar nome do arquivo:
             ren nome.pptx novo.pptx
 
-        Copy
+        <Copy>
             Dentro da pasta que tem o arquivo copiamos o arquivo e enviamos para pasta destino
                 copy nome.pptx  pastaDestino
+
+                copy /y nome.pptx  pastaDestino (copiar o mesmo arquivo sem perguntar)
+
+        <xcopy>
+            copiar arquivos, diretorios e subdiretorios
+                xcopy /Y *.txt c:\users
+                xcopy c:\plab downloads /e
+
+                        C:\>xcopy c:\jsslab downloads /e
+                        Does downloads specify a file name
+                        or directory name on the target
+                        (F = file, D = directory)? D
+                        C:\jsslab\jss.bmp
+                        C:\jsslab\jss.txt
+                        C:\jsslab\jss2.docx
+                        C:\jsslab\jss2.txt
+                        C:\jsslab\jss5.txt
+                        C:\jsslab\jss7.html
+                        C:\jsslab\jss7.jpeg
+                        C:\jsslab\jss7.txt
+                        8 File(s) copied
+
+        <ROBOCOPY>
+
+
+                            C:\>robocopy
+
+                    -------------------------------------------------------------------------------
+                    ROBOCOPY     ::     Robust File Copy for Windows                             
+                    -------------------------------------------------------------------------------
+
+                    Started : Monday, July 18, 2022 10:35:54 PM
+                        Simple Usage :: ROBOCOPY source destination /MIR
+
+                                source :: Source Directory (drive:\path or \\server\share\path).
+                            destination :: Destination Dir  (drive:\path or \\server\share\path).
+                                /MIR :: Mirror a complete directory tree.
+
+                        For more usage information run ROBOCOPY /?
+
+
+                    ****  /MIR can DELETE files as well as copy them !
+
+            <robocopy c:\jsslab downloads >  (neste caso ele pegou todos os arquivo que eu tinha na pasta jsslab e criou uma pasta
+                                                no drive c: chamada downloads e fez uma replica de todos os arquivos)
+
+                                                C:\>robocopy c:\jsslab c:\downloads\jss2
+
+                                -------------------------------------------------------------------------------
+                                ROBOCOPY     ::     Robust File Copy for Windows                             
+                                -------------------------------------------------------------------------------
+
+                                Started : Monday, July 18, 2022 10:37:18 PM
+                                Source : c:\jsslab\
+                                    Dest : C:\downloads\
+
+                                    Files : *.*
+
+                                Options : *.* /DCOPY:DA /COPY:DAT /R:1000000 /W:30
+
+                                ------------------------------------------------------------------------------
+
+                                                        8    c:\jsslab\
+
+                                ------------------------------------------------------------------------------
+
+                                            Total    Copied   Skipped  Mismatch    FAILED    Extras
+                                    Dirs :         1         0         1         0         0         0
+                                Files :         8         0         8         0         0         0
+                                Bytes :    2.16 m         0    2.16 m         0         0         0
+                                Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+                                Ended : Monday, July 18, 2022 10:37:18 PM
+
+            <robocopy /? > (saber mais argumentos)
+
+
+                                
 
         Move
             Dentro da pasta que tem o arquivo movemos o arquivo e enviamos para pasta destino
