@@ -1,0 +1,80 @@
+Getting System & Programs Information using CMD | Full Details
+
+wmic - Pegar informações dos produtos software nome e versão (detalhes dos softwares instalados na máquina) 
+            wmic
+                wmic:root\cli>/output:c:\jss.txt product get name,version
+
+                    Arquivo Gerado:
+
+                                Name                                                            Version         
+                                Python 3.10.3 Add to Path (64-bit)                              3.10.3150.0     
+                                Python 3.10.3 Core Interpreter (64-bit)                         3.10.3150.0     
+                                Python Launcher                                                 3.10.7744.0     
+                               
+
+        <CPU - detalhes> 
+            wmic
+                wmic:root\cli>cpu
+
+                Saida:
+
+                AddressWidth  Architecture  AssetTag  Availability  Caption                              Characteristics  ConfigManagerErrorCode  ConfigManagerUserConfig  CpuStatus  CreationClassName  CurrentClockSpeed  CurrentVoltage  DataWidth  Description                          DeviceID  ErrorCleared  ErrorDescription  ExtClock  Family  InstallDate  L2CacheSize  L2CacheSpeed  L3CacheSize  L3CacheSpeed  LastErrorCode  Level  LoadPercentage  Manufacturer  MaxClockSpeed  Name                                    NumberOfCores  NumberOfEnabledCore  NumberOfLogicalProcessors  OtherFamilyDescription  PartNumber  PNPDeviceID  PowerManagementCapabilities  PowerManagementSupported  ProcessorId       ProcessorType  Revision  Role  SecondLevelAddressTranslationExtensions  SerialNumber  SocketDesignation  Status  StatusInfo  Stepping  SystemCreationClassName  SystemName       ThreadCount  UniqueId  UpgradeMethod  Version              VirtualizationFirmwareEnabled  VMMonitorModeExtensions  VoltageCaps
+                64            9             Unknown   3             AMD64 Family 23 Model 96 Stepping 1  252                                                               1          Win32_Processor    2000               12              64         AMD64 Family 23 Model 96 Stepping 1  CPU0                                      100       107                  4096                       8192         0                            23     5               AuthenticAMD  2000           AMD Ryzen 7 4700U with Radeon Graphics  8              8                    8                                                  Unknown                                               FALSE                     178BFBFF00860F01  3              24577     CPU   TRUE                                     Unknown       FP6                OK      3           1         Win32_ComputerSystem     LAPTOP-R13PBR7V  8                      6              Model 0, Stepping 1  TRUE                           TRUE
+                
+            exit
+
+        <Quanto máximo de memoria RAM posso instalar>
+            wmic memphysical get MaxCapacity, MemoryDevices
+        
+                    MaxCapacity  MemoryDevices
+                    33554432     2
+        
+        <Detalhes do como está instalada a memoria atual, quantidade, tipo, velocidade, fabricante etc>
+        
+            wmic MemoryChip get BankLabel, Capacity, MemoryType, TypeDetail, Speed, Manufacturer
+        
+                C:\Users\MFJCode Lab>wmic MemoryChip get BankLabel, Capacity, MemoryType, TypeDetail, Speed, Manufacturer
+        
+                    BankLabel     Capacity    Manufacturer  MemoryType  Speed  TypeDetail
+                    P0 CHANNEL A  8589934592  Hynix         0           3200   16512
+                    P0 CHANNEL B  8589934592  Hynix         0           3200   16512
+        
+            wmic memorychip get serialnumber, banklabel, memorytype, capacity, description, devicelocator
+        
+                C:\Users\MFJCode Lab>wmic memorychip get serialnumber, banklabel, memorytype, capacity, description, devicelocator
+        
+                    BankLabel     Capacity    Description      DeviceLocator            MemoryType  SerialNumber
+                    P0 CHANNEL A  8589934592  Physical Memory  Bottom - Slot 1 (left)   0           84DD0AFA
+                    P0 CHANNEL B  8589934592  Physical Memory  Bottom - Slot 2 (right)  0           84DD0AF9
+        
+                    https://www.windowscentral.com/how-get-full-memory-specs-speed-size-type-part-number-form-factor-windows-10
+        
+                    Software para checar detalhes CPU e memoria
+                    https://www.cpuid.com/
+        
+        
+        <Fabricante disponibiliza site para ver compatibilidade de memoria para comprar>
+            https://www.crucial.es/
+
+        <Disco (HD) - Saber detalhes do disco>
+            diskpart
+                list disk
+                    select disk 0
+                        detail disk 
+            exit
+
+
+        <Check Disk - checar erros e problemas no disco, bad sectors>
+            chkdsk
+
+        <MAC - pegar o mac da maquina>
+            getmac
+
+   
+        <sysinfo - Informações da máquina local sistema, network etc>
+            systeminfo
+
+        
+        <Drivers: Saber os drivers que estão instalados na maquina>
+            driverquery
+                                    
